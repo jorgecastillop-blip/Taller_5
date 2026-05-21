@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina con layout de columnas">
+    <meta name="author" content="estudiante">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <script src="../js/utilidades.js"></script>
+</head>
+<body>
+    <script>
+
+        
+        var nav = crearElemento('nav')
+        nav.style.borderBottom = '1px solid #cccccc'
+        nav.style.paddingBottom = '10px'
+        nav.style.marginBottom = '15px'
+
+        var opciones = ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4', 'Opción 5', 'Opción 6']
+
+        for (const opcion of opciones) {
+            var link = crearElementoLink(opcion, '#')
+            link.style.color = 'blue'
+            link.style.marginRight = '5px'
+            link.style.textDecoration = 'none'
+            adicionarElementoAContenedor(link, nav)
+
+            var separador = document.createTextNode(' | ')
+            nav.appendChild(separador)
+        }
+
+        adiconarElementoABody(nav)
+
+        
+        var tabla = crearElemento('table')
+        tabla.width = '100%'
+        tabla.cellPadding = '5'
+        tabla.cellSpacing = '5'
+
+        var fila = crearElemento('tr')
+
+       
+        var tdIzquierda = crearElemento('td')
+        tdIzquierda.width = '35%'
+        tdIzquierda.style.border = '1px solid #333'
+        tdIzquierda.style.padding = '10px'
+        tdIzquierda.vAlign = 'top'
+
+        var groupName = crearElementoTexto('span', 'Group Name')
+        groupName.style.fontSize = '13px'
+        adicionarElementoAContenedor(groupName, tdIzquierda)
+
+        var imgIzquierda = crearElementoImagen('https://placehold.co/320x220', 'imagen izquierda')
+        imgIzquierda.style.width = '100%'
+        imgIzquierda.style.display = 'block'
+        imgIzquierda.style.marginTop = '5px'
+        adicionarElementoAContenedor(imgIzquierda, tdIzquierda)
+
+        var parrafosIzquierda = [
+            'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque vehicula sapien nec risus fermentum vitae tincidunt nulla varius aliquet. Nulla facilisi etiam imperdiet imperdiet orci nunc nisi feugiat.',
+            'Vestibulum ante ipsum primis faucibus orci luctus ultrices posuere cubilia curae. Mauris viverra diam vitae quam fusce convallis metus id felis luctus adipiscing donec pede justo fringilla vel aliquet nec arcu.',
+            'Curabitur pretium tincidunt lacus nulla mauris accumsan nulla facilisi. Etiam imperdiet imperdiet orci nunc nisi feugiat lorem ipsum dolor sit amet consectetur.'
+        ]
+
+        for (const texto of parrafosIzquierda) {
+            var parrafo = crearElementoTexto('p', texto)
+            parrafo.style.fontSize = '13px'
+            adicionarElementoAContenedor(parrafo, tdIzquierda)
+        }
+
+        adicionarElementoAContenedor(tdIzquierda, fila)
+
+       
+        var tdCentral = crearElemento('td')
+        tdCentral.width = '38%'
+        tdCentral.vAlign = 'top'
+
+        var tablaCentral = crearElemento('table')
+        tablaCentral.width = '100%'
+        tablaCentral.cellSpacing = '5'
+
+        
+        var filaSuperior = crearElemento('tr')
+        var imgsSuperior = [
+            'https://placehold.co/140x70',
+            'https://placehold.co/140x70'
+        ]
+
+        for (const url of imgsSuperior) {
+            var tdGris = crearElemento('td')
+            var imgGris = crearElementoImagen(url, 'imagen superior')
+            imgGris.style.width = '100%'
+            adicionarElementoAContenedor(imgGris, tdGris)
+            adicionarElementoAContenedor(tdGris, filaSuperior)
+        }
+        adicionarElementoAContenedor(filaSuperior, tablaCentral)
+
+        
+        var filaVideo = crearElemento('tr')
+        var tdVideo = crearElemento('td')
+        tdVideo.colSpan = '2'
+        tdVideo.style.backgroundColor = '#f5f5f5'
+        tdVideo.style.padding = '10px'
+
+        var imgCentral = crearElementoImagen('https://placehold.co/320x200', 'imagen central')
+        imgCentral.style.width = '100%'
+        adicionarElementoAContenedor(imgCentral, tdVideo)
+
+        var pCentral = crearElementoTexto('p', 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus malesuada fames turpis egestas proin pharetra nostra.')
+        pCentral.style.fontSize = '12px'
+        adicionarElementoAContenedor(pCentral, tdVideo)
+        adicionarElementoAContenedor(tdVideo, filaVideo)
+        adicionarElementoAContenedor(filaVideo, tablaCentral)
+
+        
+        var filaInferior = crearElemento('tr')
+        var imgsInferior = [
+            'https://placehold.co/140x80',
+            'https://placehold.co/140x80'
+        ]
+
+        for (const url of imgsInferior) {
+            var tdInf = crearElemento('td')
+            var imgInf = crearElementoImagen(url, 'imagen inferior')
+            imgInf.style.width = '100%'
+            adicionarElementoAContenedor(imgInf, tdInf)
+            adicionarElementoAContenedor(tdInf, filaInferior)
+        }
+        adicionarElementoAContenedor(filaInferior, tablaCentral)
+
+        adicionarElementoAContenedor(tablaCentral, tdCentral)
+        adicionarElementoAContenedor(tdCentral, fila)
+
+    
+        var tdDerecha = crearElemento('td')
+        tdDerecha.width = '27%'
+        tdDerecha.vAlign = 'top'
+
+        var tablaDerecha = crearElemento('table')
+        tablaDerecha.width = '100%'
+        tablaDerecha.cellSpacing = '5'
+
+        var urlsDerecha = [
+            'https://placehold.co/170x90',
+            'https://placehold.co/170x95',
+            'https://placehold.co/170x85',
+            'https://placehold.co/170x92',
+            'https://placehold.co/170x88',
+            'https://placehold.co/170x94'
+        ]
+
+        for (const url of urlsDerecha) {
+            var filaDerecha = crearElemento('tr')
+            var tdImg = crearElemento('td')
+            var imgDer = crearElementoImagen(url, 'imagen derecha')
+            imgDer.style.width = '100%'
+            adicionarElementoAContenedor(imgDer, tdImg)
+            adicionarElementoAContenedor(tdImg, filaDerecha)
+            adicionarElementoAContenedor(filaDerecha, tablaDerecha)
+        }
+
+        adicionarElementoAContenedor(tablaDerecha, tdDerecha)
+        adicionarElementoAContenedor(tdDerecha, fila)
+
+        adicionarElementoAContenedor(fila, tabla)
+        adiconarElementoABody(tabla)
+
+    </script>
+</body>
+</html>

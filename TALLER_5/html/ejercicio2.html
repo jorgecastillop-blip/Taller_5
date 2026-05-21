@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tabla de productos y especificaciones">
+    <meta name="author" content="estudiante">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos y Especificaciones</title>
+    <script src="../js/utilidades.js"></script>
+</head>
+<body>
+    <script>
+
+        
+        function crearCelda(tipo, texto, colspan, rowspan) {
+            var celda = crearElemento(tipo)
+            if (texto) {
+                var textoNodo = document.createTextNode(texto)
+                celda.appendChild(textoNodo)
+            }
+            if (colspan) celda.colSpan = colspan
+            if (rowspan) celda.rowSpan = rowspan
+            return celda
+        }
+
+        
+        function crearFila() {
+            var fila = crearElemento('tr')
+            return fila
+        }
+
+       
+        function crearLista(items) {
+            var lista = crearElemento('ul')
+            for (var i = 0; i < items.length; i++) {
+                var li = crearElementoTexto('li', items[i])
+                adicionarElementoAContenedor(li, lista)
+            }
+            return lista
+        }
+
+        
+        var titulo = crearElementoTexto('h2', 'Productos y Especificaciones')
+        titulo.style.textAlign = 'center'
+        adiconarElementoABody(titulo)
+
+       
+        var tabla = crearElemento('table')
+        tabla.border = "1"
+        tabla.cellPadding = "10"
+        tabla.cellSpacing = "0"
+        tabla.width = "100%"
+
+        
+        var filaEncabezado = crearFila()
+        adicionarElementoAContenedor(crearCelda('th', 'Producto'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', 'Imagen'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', 'Descripción'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', 'Características'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', 'Especificaciones'), filaEncabezado)
+        adicionarElementoAContenedor(filaEncabezado, tabla)
+
+        
+        var filaSmartphone = crearFila()
+
+        
+        adicionarElementoAContenedor(crearCelda('td', 'Smartphone X'), filaSmartphone)
+
+        
+        var tdImagenSmartphone = crearElemento('td')
+        var imgSmartphone = crearElementoImagen('https://placehold.co/100x100', 'Smartphone X')
+        adicionarElementoAContenedor(imgSmartphone, tdImagenSmartphone)
+        adicionarElementoAContenedor(tdImagenSmartphone, filaSmartphone)
+
+        // descripcion con lista
+        var tdDescSmartphone = crearElemento('td')
+        var pSmartphone = crearElementoTexto('p', 'El Smartphone X es un dispositivo de alta gama que ofrece lo último en tecnología móvil.')
+        var listaSmartphone = crearLista([
+            'Procesador de última generación',
+            'Pantalla OLED de 6.5 pulgadas',
+            'Batería de larga duración'
+        ])
+        adicionarElementoAContenedor(pSmartphone, tdDescSmartphone)
+        adicionarElementoAContenedor(listaSmartphone, tdDescSmartphone)
+        adicionarElementoAContenedor(tdDescSmartphone, filaSmartphone)
+
+        
+        var tdCarSmartphone = crearElemento('td')
+        var listaCarSmartphone = crearLista([
+            '1. Cámara de 108 MP',
+            '2. Reconocimiento facial',
+            '3. Resistencia al agua y al polvo'
+        ])
+        adicionarElementoAContenedor(listaCarSmartphone, tdCarSmartphone)
+        adicionarElementoAContenedor(tdCarSmartphone, filaSmartphone)
+
+        
+        var tdEspecSmartphone = crearElemento('td')
+        var listaEspecSmartphone = crearLista([
+            'RAM: 8 GB',
+            'Almacenamiento: 256 GB',
+            'SO: Android 11'
+        ])
+        adicionarElementoAContenedor(listaEspecSmartphone, tdEspecSmartphone)
+        adicionarElementoAContenedor(tdEspecSmartphone, filaSmartphone)
+
+        adicionarElementoAContenedor(filaSmartphone, tabla)
+
+        
+        var filaLaptop = crearFila()
+
+        adicionarElementoAContenedor(crearCelda('td', 'Laptop Pro'), filaLaptop)
+
+        var tdImagenLaptop = crearElemento('td')
+        var imgLaptop = crearElementoImagen('https://placehold.co/100x100', 'Laptop Pro')
+        adicionarElementoAContenedor(imgLaptop, tdImagenLaptop)
+        adicionarElementoAContenedor(tdImagenLaptop, filaLaptop)
+
+        var tdDescLaptop = crearElemento('td')
+        var pLaptop = crearElementoTexto('p', 'La Laptop Pro es perfecta para profesionales que necesitan un equipo potente y portátil.')
+        var listaLaptop = crearLista([
+            'Procesador Intel Core i7',
+            '16 GB de RAM',
+            'SSD de 512 GB'
+        ])
+        adicionarElementoAContenedor(pLaptop, tdDescLaptop)
+        adicionarElementoAContenedor(listaLaptop, tdDescLaptop)
+        adicionarElementoAContenedor(tdDescLaptop, filaLaptop)
+
+        var tdCarLaptop = crearElemento('td')
+        var listaCarLaptop = crearLista([
+            '1. Pantalla 4K UHD',
+            '2. Teclado retroiluminado',
+            '3. Batería de 10 horas'
+        ])
+        adicionarElementoAContenedor(listaCarLaptop, tdCarLaptop)
+        adicionarElementoAContenedor(tdCarLaptop, filaLaptop)
+
+        var tdEspecLaptop = crearElemento('td')
+        var listaEspecLaptop = crearLista([
+            'SSD: 512 GB',
+            'Peso: 1.5 kg',
+            'Duración de la batería: 10 horas'
+        ])
+        adicionarElementoAContenedor(listaEspecLaptop, tdEspecLaptop)
+        adicionarElementoAContenedor(tdEspecLaptop, filaLaptop)
+
+        adicionarElementoAContenedor(filaLaptop, tabla)
+
+        
+        var filaTablet = crearFila()
+
+        adicionarElementoAContenedor(crearCelda('td', 'Tablet Z'), filaTablet)
+
+        var tdImagenTablet = crearElemento('td')
+        var imgTablet = crearElementoImagen('https://placehold.co/100x100', 'Tablet Z')
+        adicionarElementoAContenedor(imgTablet, tdImagenTablet)
+        adicionarElementoAContenedor(tdImagenTablet, filaTablet)
+
+        var tdDescTablet = crearElemento('td')
+        var pTablet = crearElementoTexto('p', 'La Tablet Z es ideal para entretenimiento y productividad en movimiento.')
+        var listaTablet = crearLista([
+            'Pantalla de 10 pulgadas',
+            '4 GB de RAM',
+            'Almacenamiento de 64 GB'
+        ])
+        adicionarElementoAContenedor(pTablet, tdDescTablet)
+        adicionarElementoAContenedor(listaTablet, tdDescTablet)
+        adicionarElementoAContenedor(tdDescTablet, filaTablet)
+
+        var tdCarTablet = crearElemento('td')
+        var listaCarTablet = crearLista([
+            '1. Compatible con stylus',
+            '2. Batería de 12 horas',
+            '3. Conectividad LTE'
+        ])
+        adicionarElementoAContenedor(listaCarTablet, tdCarTablet)
+        adicionarElementoAContenedor(tdCarTablet, filaTablet)
+
+        var tdEspecTablet = crearElemento('td')
+        var listaEspecTablet = crearLista([
+            'RAM: 4 GB',
+            'Peso: 500 g',
+            'Conectividad: LTE, Wi-Fi'
+        ])
+        adicionarElementoAContenedor(listaEspecTablet, tdEspecTablet)
+        adicionarElementoAContenedor(tdEspecTablet, filaTablet)
+
+        adicionarElementoAContenedor(filaTablet, tabla)
+
+      
+        adiconarElementoABody(tabla)
+
+    </script>
+</body>
+</html>
