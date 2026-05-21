@@ -11,7 +11,7 @@
 <body>
      <script>
  
-        // funcion para crear una celda td o th con texto y atributos
+        
         function crearCelda(tipo, texto, colspan, rowspan) {
             var celda = crearElemento(tipo)
             if (texto) {
@@ -23,20 +23,20 @@
             return celda
         }
  
-        // funcion para crear una fila tr
+        
         function crearFila() {
             var fila = crearElemento('tr')
             return fila
         }
  
-        // crear la tabla con los atributos que pide el ejercicio
+        
         var tabla = crearElemento('table')
         tabla.border = "1"
         tabla.cellPadding = "10"
         tabla.cellSpacing = "0"
         tabla.width = "100%"
  
-        // ======= FILA DE ENCABEZADOS =======
+        
         var filaEncabezado = crearFila()
         adicionarElementoAContenedor(crearCelda('th', 'Día'), filaEncabezado)
         adicionarElementoAContenedor(crearCelda('th', '8:00 - 9:00'), filaEncabezado)
@@ -48,7 +48,7 @@
         adicionarElementoAContenedor(crearCelda('th', '14:00 - 15:00'), filaEncabezado)
         adicionarElementoAContenedor(filaEncabezado, tabla)
  
-        // ======= FILAS DE LUNES =======
+      
         var filaLunes1 = crearFila()
         adicionarElementoAContenedor(crearCelda('td', 'Lunes', null, 2), filaLunes1)
         adicionarElementoAContenedor(crearCelda('td', 'Sesión de Apertura', 2), filaLunes1)
@@ -67,7 +67,7 @@
         adicionarElementoAContenedor(crearCelda('td', ''), filaLunes2)
         adicionarElementoAContenedor(filaLunes2, tabla)
  
-        // ======= FILAS DE MARTES =======
+        
         var filaMartes1 = crearFila()
         adicionarElementoAContenedor(crearCelda('td', 'Martes', null, 3), filaMartes1)
         adicionarElementoAContenedor(crearCelda('td', 'Registro'), filaMartes1)
@@ -96,7 +96,7 @@
         adicionarElementoAContenedor(crearCelda('td', ''), filaMartes3)
         adicionarElementoAContenedor(filaMartes3, tabla)
  
-        // ======= FILAS DE MIERCOLES =======
+        
         var filaMiercoles1 = crearFila()
         adicionarElementoAContenedor(crearCelda('td', 'Miércoles', null, 3), filaMiercoles1)
         adicionarElementoAContenedor(crearCelda('td', 'Desayuno de Negocios', 3), filaMiercoles1)
@@ -122,7 +122,7 @@
         adicionarElementoAContenedor(crearCelda('td', ''), filaMiercoles3)
         adicionarElementoAContenedor(filaMiercoles3, tabla)
  
-        // agregar tabla al body
+        
         adiconarElementoABody(tabla)
  
     </script>
