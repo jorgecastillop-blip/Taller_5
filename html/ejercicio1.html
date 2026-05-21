@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tabla de horario de conferencias">
+    <meta name="author" content="estudiante">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario</title>
+    <script src="../js/utilidades.js"></script>
+</head>
+<body>
+     <script>
+ 
+        // funcion para crear una celda td o th con texto y atributos
+        function crearCelda(tipo, texto, colspan, rowspan) {
+            var celda = crearElemento(tipo)
+            if (texto) {
+                var textoNodo = document.createTextNode(texto)
+                celda.appendChild(textoNodo)
+            }
+            if (colspan) celda.colSpan = colspan
+            if (rowspan) celda.rowSpan = rowspan
+            return celda
+        }
+ 
+        // funcion para crear una fila tr
+        function crearFila() {
+            var fila = crearElemento('tr')
+            return fila
+        }
+ 
+        // crear la tabla con los atributos que pide el ejercicio
+        var tabla = crearElemento('table')
+        tabla.border = "1"
+        tabla.cellPadding = "10"
+        tabla.cellSpacing = "0"
+        tabla.width = "100%"
+ 
+        // ======= FILA DE ENCABEZADOS =======
+        var filaEncabezado = crearFila()
+        adicionarElementoAContenedor(crearCelda('th', 'Día'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '8:00 - 9:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '9:00 - 10:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '10:00 - 11:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '11:00 - 12:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '12:00 - 13:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '13:00 - 14:00'), filaEncabezado)
+        adicionarElementoAContenedor(crearCelda('th', '14:00 - 15:00'), filaEncabezado)
+        adicionarElementoAContenedor(filaEncabezado, tabla)
+ 
+        // ======= FILAS DE LUNES =======
+        var filaLunes1 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Lunes', null, 2), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Sesión de Apertura', 2), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Descanso'), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica A'), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Almuerzo', null, 2), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaLunes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Taller Práctico'), filaLunes1)
+        adicionarElementoAContenedor(filaLunes1, tabla)
+ 
+        var filaLunes2 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Panel de Discusión', 2), filaLunes2)
+        adicionarElementoAContenedor(crearCelda('td', 'Networking'), filaLunes2)
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica B'), filaLunes2)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaLunes2)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaLunes2)
+        adicionarElementoAContenedor(filaLunes2, tabla)
+ 
+        // ======= FILAS DE MARTES =======
+        var filaMartes1 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Martes', null, 3), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Registro'), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Keynote'), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Descanso'), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica C'), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes1)
+        adicionarElementoAContenedor(crearCelda('td', 'Mesa Redonda'), filaMartes1)
+        adicionarElementoAContenedor(filaMartes1, tabla)
+ 
+        var filaMartes2 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Taller Avanzado', 2), filaMartes2)
+        adicionarElementoAContenedor(crearCelda('td', 'Networking', null, 2), filaMartes2)
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica D'), filaMartes2)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes2)
+        adicionarElementoAContenedor(crearCelda('td', 'Exhibición'), filaMartes2)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes2)
+        adicionarElementoAContenedor(filaMartes2, tabla)
+ 
+        var filaMartes3 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica E', 2), filaMartes3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMartes3)
+        adicionarElementoAContenedor(filaMartes3, tabla)
+ 
+        // ======= FILAS DE MIERCOLES =======
+        var filaMiercoles1 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', 'Miércoles', null, 3), filaMiercoles1)
+        adicionarElementoAContenedor(crearCelda('td', 'Desayuno de Negocios', 3), filaMiercoles1)
+        adicionarElementoAContenedor(crearCelda('td', 'Descanso'), filaMiercoles1)
+        adicionarElementoAContenedor(crearCelda('td', 'Charla Técnica F'), filaMiercoles1)
+        adicionarElementoAContenedor(crearCelda('td', 'Almuerzo', null, 2), filaMiercoles1)
+        adicionarElementoAContenedor(crearCelda('td', 'Conferencia de Cierre'), filaMiercoles1)
+        adicionarElementoAContenedor(filaMiercoles1, tabla)
+ 
+        var filaMiercoles2 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', '', 2), filaMiercoles2)
+        adicionarElementoAContenedor(crearCelda('td', 'Panel de Discusión'), filaMiercoles2)
+        adicionarElementoAContenedor(crearCelda('td', 'Taller Final', 2), filaMiercoles2)
+        adicionarElementoAContenedor(crearCelda('td', 'Networking'), filaMiercoles2)
+        adicionarElementoAContenedor(filaMiercoles2, tabla)
+ 
+        var filaMiercoles3 = crearFila()
+        adicionarElementoAContenedor(crearCelda('td', '', 2), filaMiercoles3)
+        adicionarElementoAContenedor(crearCelda('td', 'Entrega de Premios'), filaMiercoles3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMiercoles3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMiercoles3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMiercoles3)
+        adicionarElementoAContenedor(crearCelda('td', ''), filaMiercoles3)
+        adicionarElementoAContenedor(filaMiercoles3, tabla)
+ 
+        // agregar tabla al body
+        adiconarElementoABody(tabla)
+ 
+    </script>
+</body>
+</html>
